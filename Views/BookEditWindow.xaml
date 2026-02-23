@@ -1,0 +1,38 @@
+<Window x:Class="LibraryManagement.Views.BookEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование книги" Height="350" Width="400" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Название:" Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Title}" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Год публикации:" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding PublishYear}" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="ISBN:" Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Isbn}" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Количество:" Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding QuantityInStock}" Grid.Row="3" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Автор:" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
+        <ComboBox ItemsSource="{Binding Authors}" DisplayMemberPath="FullName" SelectedItem="{Binding SelectedAuthor}" Grid.Row="4" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Жанр:" Grid.Row="5" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
+        <ComboBox ItemsSource="{Binding Genres}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGenre}" Grid.Row="5" Grid.Column="1" Margin="5"/>
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Content="Сохранить" Command="{Binding SaveCommand}" Padding="10,5" Margin="5" IsDefault="True"/>
+            <Button Content="Отмена" Command="{Binding CancelCommand}" Padding="10,5" Margin="5" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

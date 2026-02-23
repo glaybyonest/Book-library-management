@@ -1,0 +1,27 @@
+# Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio Code settings
+.vscode/
+
+# Local database
+library.db
+
+# EF Core migrations
+Migrations/
+
+# NuGet packages
+*.nupkg
+# symbol packages
+*.snupkg
+
+# Others
+*.log
+*.pdb
+*.cache
