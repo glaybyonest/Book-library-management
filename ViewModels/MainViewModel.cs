@@ -35,6 +35,17 @@ namespace LibraryManagement.ViewModels
         public MainViewModel()
         {
             _context = new LibraryContext();
+
+            try
+            {
+                // Если в базе мало записей, заполняем её демо-данными с русскоязычными книгами
+                Data.SeedService.SeedPopularBooksAsync(_context).GetAwaiter().GetResult();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось загрузить демо-данные: {ex.Message}", "Ошибка загрузки", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
             LoadData();
         }
 
